@@ -10,7 +10,8 @@ output: 5;
 可以去除数组中任意数字，实现不递减数组，使这个不递减数组最长。
 */
 
-
+// Think in DP, the Time complexity is O(n^2)
+//dp[i] = max(1, dp[j] + 1); j<i && a[j] <= a[i]
 int main(int argc, char const *argv[])
 {
     int N;
@@ -39,4 +40,22 @@ int main(int argc, char const *argv[])
     printf("%d\n", ans);
     system("PAUSE");
     return 0;
+}
+
+// method two
+// arr is the origin array, ans is an array for
+// saving the longest increasing array's last element 
+// the Time complexity is O(nlogn)
+ans[1] = arr[1];
+len = 1;
+for (int i = 2; i <= n; ++i)
+{
+    if (arr[i] > ans[len])
+    {
+        ans[++len] = arr[i]; 
+    }
+    else{
+        int pos = lower_bound(ans,ans+len,arr[i])-ans; // find the lower bound binary search
+        ans[pos] = arr[i]; 
+    }
 }
