@@ -25,6 +25,7 @@ OUTPUT：5
 Description: 平面n个点，最少连接几条边，包围所有点。
 Solution: 遍历，判断其他点是否在直线一侧。每个点可以visit2次，2次后退出遍历的集合。
         如果共线则连接最短的线段，并更新点的位置后再更新visited。
+        updating...
 */
 int main() {
     int n;
